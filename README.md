@@ -11,50 +11,50 @@ Implemented, evaluated, and compared multiple unsupervised clustering algorithms
 This project implemented and compared three primary families of clustering algorithms on multiple datasets.
 
 1.  **K-Means Clustering (from Scratch):**
-    * Implemented the K-Means algorithm from scratch (`Kmeans.py`) using NumPy.
-    * The algorithm iteratively assigns points to the nearest cluster (E-step) and recalculates the cluster's centroid (M-step) until convergence.
+    * Implemented the K-Means algorithm from scratch (`Kmeans.py`) using NumPy.
+    * The algorithm iteratively assigns points to the nearest cluster (E-step) and recalculates the cluster's centroid (M-step) until convergence.
 
 2.  **K-Medoids Clustering (from Scratch):**
-    * Implemented the K-Medoids algorithm from scratch (`Kmedoids.py`), which is more robust to outliers than K-Means.
-    * This implementation was specifically designed to use **Cosine Distance**, making it effective for high-dimensional or non-Euclidean data.
+    * Implemented the K-Medoids algorithm from scratch (`Kmedoids.py`), which is more robust to outliers than K-Means.
+    * This implementation was specifically designed to use **Cosine Distance**, making it effective for high-dimensional or non-Euclidean data.
 
 3.  **Hierarchical Agglomerative Clustering (HAC):**
-    * Implemented HAC using `sklearn.cluster.AgglomerativeClustering` to provide a hierarchical (bottom-up) alternative.
-    * Systematically tested four combinations of linkage criteria and distance metrics:
-        * Single Linkage + Euclidean Distance
-        * Single Linkage + Cosine Distance
-        * Complete Linkage + Euclidean Distance
-        * Complete Linkage + Cosine Distance
+    * Implemented HAC using `sklearn.cluster.AgglomerativeClustering` to provide a hierarchical (bottom-up) alternative.
+    * Systematically tested four combinations of linkage criteria and distance metrics:
+        * Single Linkage + Euclidean Distance
+        * Single Linkage + Cosine Distance
+        * Complete Linkage + Euclidean Distance
+        * Complete Linkage + Cosine Distance
 
 ## Evaluation & Validation
 
 A multi-step process was used to determine the optimal number of clusters (K) and validate the quality of the final groupings.
 
 1.  **Elbow Method (Finding K):**
-    * To find the best `K` for K-Means and K-Medoids, a rigorous experiment was run (`kmeans_experiment.py`, `kmedoids_experiment.py`).
-    * For each K from 2 to 10, the algorithm was run 10 times, and the lowest loss was recorded.
-    * This process was *itself repeated 10 times*, and the results were averaged to find a statistically stable loss value for each K.
-    * The resulting "Loss vs. K" graph was used to identify the "elbow point," where the rate of loss reduction sharply decreases.
+    * To find the best `K` for K-Means and K-Medoids, a rigorous experiment was run (`kmeans_experiment.py`, `kmedoids_experiment.py`).
+    * For each K from 2 to 10, the algorithm was run 10 times, and the lowest loss was recorded.
+    * This process was *itself repeated 10 times*, and the results were averaged to find a statistically stable loss value for each K.
+    * The resulting "Loss vs. K" graph was used to identify the "elbow point," where the rate of loss reduction sharply decreases.
 
-    > **[Image: Elbow Plot for K-Means on Dataset 1]**
-    >
-    > *(**Developer Note:** Place your elbow plot from `report.pdf` (Page 1) here. It clearly shows the elbow at K=5.)*
+    > **[Image: Elbow Plot for K-Means on Dataset 1]**
+    >
+    > *(**Developer Note:** Place your elbow plot from `report.pdf` (Page 1) here. It clearly shows the elbow at K=5.)*
 
 2.  **Silhouette Analysis (Validating K):**
-    * For HAC, Silhouette Analysis was used to find the optimal K (from 2, 3, 4, 5) for each of the four linkage/distance combinations.
-    * This method measures how similar an object is to its own cluster (cohesion) compared to other clusters (separation). A score close to 1 indicates good clustering.
+    * For HAC, Silhouette Analysis was used to find the optimal K (from 2, 3, 4, 5) for each of the four linkage/distance combinations.
+    * This method measures how similar an object is to its own cluster (cohesion) compared to other clusters (separation). A score close to 1 indicates good clustering.
 
-    > **[Image: Silhouette Plot for the Best HAC Configuration]**
-    >
-    > *(**Developer Note:** Place your best silhouette plot from `report.pdf` (Page 15) here. This plot provides quantitative proof of your best result.)*
+    > **[Image: Silhouette Plot for the Best HAC Configuration]**
+    >
+    > *(**Developer Note:** Place your best silhouette plot from `report.pdf` (Page 15) here. This plot provides quantitative proof of your best result.)*
 
 3.  **Dimensionality Reduction (Visual Confirmation):**
-    * To visually inspect the clusters in 2D, **t-SNE** and **UMAP** were applied to the datasets (`dimensionality_reduction.py`).
-    * These visualizations confirmed that the K values identified by the Elbow and Silhouette methods corresponded to visually distinct groupings of data points.
+    * To visually inspect the clusters in 2D, **t-SNE** and **UMAP** were applied to the datasets (`dimensionality_reduction.py`).
+    * These visualizations confirmed that the K values identified by the Elbow and Silhouette methods corresponded to visually distinct groupings of data points.
 
-    > **[Image: t-SNE Scatter Plot of Dataset 1]**
-    >
-    > *(**Developer Note:** Place your t-SNE plot from `report.pdf` (Page 5) here. It visually confirms the 5 clusters.)*
+    > **[Image: t-SNE Scatter Plot of Dataset 1]**
+    >
+    > *(**Developer Note:** Place your t-SNE plot from `report.pdf` (Page 5) here. It visually confirms the 5 clusters.)*
 
 ## 📊 Key Results
 
