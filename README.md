@@ -36,25 +36,19 @@ A multi-step process was used to determine the optimal number of clusters (K) an
     * This process was *itself repeated 10 times*, and the results were averaged to find a statistically stable loss value for each K.
     * The resulting "Loss vs. K" graph was used to identify the "elbow point," where the rate of loss reduction sharply decreases.
 
-    > **[Image: Elbow Plot for K-Means on Dataset 1]**
-    >
-    > *(**Developer Note:** Place your elbow plot from `report.pdf` (Page 1) here. It clearly shows the elbow at K=5.)*
+    ![Image: Elbow Plot for K-Means on Dataset 1](.media/elbow_plot.png)
 
 2.  **Silhouette Analysis (Validating K):**
     * For HAC, Silhouette Analysis was used to find the optimal K (from 2, 3, 4, 5) for each of the four linkage/distance combinations.
     * This method measures how similar an object is to its own cluster (cohesion) compared to other clusters (separation). A score close to 1 indicates good clustering.
 
-    > **[Image: Silhouette Plot for the Best HAC Configuration]**
-    >
-    > *(**Developer Note:** Place your best silhouette plot from `report.pdf` (Page 15) here. This plot provides quantitative proof of your best result.)*
+    ![Image: Silhouette Plot for the Best HAC Configuration](.media/silhouette_plot.png)
 
 3.  **Dimensionality Reduction (Visual Confirmation):**
     * To visually inspect the clusters in 2D, **t-SNE** and **UMAP** were applied to the datasets (`dimensionality_reduction.py`).
     * These visualizations confirmed that the K values identified by the Elbow and Silhouette methods corresponded to visually distinct groupings of data points.
 
-    > **[Image: t-SNE Scatter Plot of Dataset 1]**
-    >
-    > *(**Developer Note:** Place your t-SNE plot from `report.pdf` (Page 5) here. It visually confirms the 5 clusters.)*
+    ![Image: t-SNE Scatter Plot of Dataset 1](.media/tSNE_plot.png)
 
 ## 📊 Key Results
 
